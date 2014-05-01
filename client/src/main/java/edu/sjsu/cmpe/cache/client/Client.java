@@ -23,7 +23,7 @@ servers.add("http://localhost:3001");
 servers.add("http://localhost:3002");
 for(int i=0;i<servers.size();i++)
 {
-System.out.println("Adding the server : "+servers.get(i));
+System.out.println("Added to the server : "+servers.get(i));
 add(servers.get(i), i);
 }
 
@@ -31,7 +31,7 @@ for(int j=0 ; j<10 ; j++)
 {
 int bucket = Hashing.consistentHash(Hashing.md5().hashInt(j), ring.size());
 String server= get(bucket);
-System.out.println("routed to Server: " + server);
+System.out.println("routed to the Server: " + server);
 CacheServiceInterface cache = new DistributedCacheService(server);
 cache.put(j+1, String.valuesOfch[j]);
 String value = cache.get(j+1);
@@ -39,7 +39,7 @@ System.out.println("get("+(j+1)+") => " + value);
 
 }
 
-System.out.println("Exiting Cache Client...");
+System.out.println("Exiting Cache Client");
 }
 
 
